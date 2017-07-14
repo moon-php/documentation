@@ -1,0 +1,64 @@
+{{ define "header"}}
+{{ partial "header" .}}
+{{end}}
+
+{{ define "main"}}
+<div id="main">
+
+    <div id="hero">
+        <img alt="logo" src="/img/moon.svg">
+        <p>{{.Site.Params.Description}}</p>
+    </div>
+
+    <div id="action-buttons">
+        <a class="button outline big" href="{{.Site.Params.Github}}">View on Github</a>
+    </div>
+
+    <div id="kube-features">
+        <div class="row gutters">
+            <div class="col col-4 item">
+                <figure>
+                    <img alt="Baseline" height="48" src="/img/kube/icon-baseline.png" width="48">
+                </figure>
+                <h3>Lorem ipsum dolor sit</h3>
+                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium</p>
+            </div>
+            <div class="col col-4 item">
+                <figure>
+                    <img alt="Typography" height="48" src="/img/kube/icon-typo.png" width="48">
+                </figure>
+                <h3>Lorem ipsum dolor sit</h3>
+                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium</p>
+            </div>
+            <div class="col col-4 item">
+                <figure>
+                    <img alt="Minimalism" height="48" src="/img/kube/icon-minimalism.png" width="48">
+                </figure>
+                <h3>Lorem ipsum dolor sit</h3>
+                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantiumto everyday
+                    life.</p>
+            </div>
+        </div>
+        <div class="row gutters">
+            <div class="col col-4 item">
+                <h4>Mobile-first Design</h4>
+                <p>Every element in kube is mobile-first and fully embraces latest and greatest tech.</p>
+            </div>
+            <div class="col col-4 item">
+                <h4>Cross-browser</h4>
+                <p>Kube works in all modern browsers, both desktop and mobile, including latest Chrome, Firefox, Safari,
+                    Opera, IE and Edge.</p>
+            </div>
+            <div class="col col-4 item">
+                <h4>License</h4>
+                <p>Kube licensed under <a href="http://opensource.org/licenses/MIT">MIT</a>.<br>
+                    Kube Framework is absolutely free for personal or commercial use.</p>
+            </div>
+        </div>
+    </div>
+</div>
+{{ end }}
+
+{{ define "footer"}}
+{{ partial "footer.html" .}}
+{{end}}

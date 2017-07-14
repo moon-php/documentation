@@ -1,0 +1,16 @@
+baseURL = "http://moon-php.com/"
+languageCode = "en-us"
+title = "Moon PHP"
+theme = "kube"
+[params]
+	github = "http://github.com/moon-php/"
+	twitter = "https://twitter.com/damiano_dev"
+	description = "Moon PHP micro-framework based on interchangeable PSR-only components"
+[[menu.main]]
+    name = "Docs"
+    weight = -100
+    url = "/docs/"
+[[menu.main]]	
+    name = "Github"
+    weight = -100
+	url = "http://github.com/moon-php/"
