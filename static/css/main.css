@@ -1,3 +1,7 @@
-#header #top-brand #top-brand img{
+#kube-features figure img {
+    height: 50px;
+}
 
+#footer {
+    margin: 104px 0 20px 0 !important;
 }
