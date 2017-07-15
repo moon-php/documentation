@@ -30,7 +30,7 @@ The Autoloader has 2 different classes.
 
 Both the classes have register and unregister methods, for create or destroy an autoloader instance.
  
-###### PSRAutoloader
+##### PSRAutoloader
 
     <?php
     $autoloader = new PsrAutoloader();
@@ -45,7 +45,7 @@ Both the classes have register and unregister methods, for create or destroy an 
     
     $autoloader->unregister(); // For disable this autoloader
 
-###### MapAutoloader
+##### MapAutoloader
 
     <?php
     $autoloader = new MapAutoloader();
