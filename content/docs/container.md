@@ -8,8 +8,10 @@ toc = true
 +++
 
 <h3 class="section-head" id="introduction"><a href="#introduction">Introduction</a></h3>
-Container is a standalone component incredibly easy.
-It's a container (yes, really) that implements only the PSR-11 interface without other method.
+
+Container is a standalone component incredibly easy to use.
+
+It's a container that implements only the PSR-11 interface without other methods.
 
 <h3 class="section-head" id="installation"><a href="#installation">Installation</a></h3>
 
@@ -23,11 +25,14 @@ This will install Container, it requires PHP 7.1 or newer.
 
 <h3 class="section-head" id="usage"><a href="#usage">Usage</a></h3>
 
-The container accept as  constructor argument, an associative array.
-The key (a.k.a alias) always has an entry.
+The container accept as constructor argument, an associative array `['key' => 'entry']`.
 
-##### Init Container
+The keys (a.k.a alias) always has an entry.
 
+##### Build a Container
+
+    <?php
+    
     $entries = [
         'alias' => function () {
             return new App\Acme\Class();
@@ -35,16 +40,18 @@ The key (a.k.a alias) always has an entry.
     ];
     $container = new Container($entries);
         
-The entry can be anything: an integer, a string, a closure or an instance.
+The entry can be anything: an integer, a string, a lambda, a closure or an instance.
 
 ##### Check if entry exists by alias
 
+    <?php
     $entries = [...];
     $container = new Moon\Container($entries);
     $container->has('alias'); // Return true or false
 
 ##### Getting an entry
 
+    <?php
     $entries = [...];
     $c = new Moon\Container($entries);
     $container->get('alias'); // Return the instance or throw a Moon\Container\Exception\NotFoundException
@@ -52,14 +59,16 @@ The entry can be anything: an integer, a string, a closure or an instance.
 
 ##### Entry with container resolution
 
-An entry may require an instance of the container for other entries.
-In this case, just use an argument in the function where the container instance will be bound.
- 
-         $entries = [];
-         $entries['ten'] = 10;
-         $entries['two'] = 2;
-         $entries['multiply'] = function ($c) {
-             return $c->get('ten') * $c->get('two');
-         };
-         $c = new Moon\Container($entries);
-         $c->get('multiply'); // Return 20
+An entry may depends on another entry in the container.
+
+In this case you can use the container instance that is automatically injected as first argument of a callable entry.
+
+    <?php
+     $entries = [];
+     $entries['ten'] = 10;
+     $entries['two'] = 2;
+     $entries['multiply'] = function ($c) {
+         return $c->get('ten') * $c->get('two');
+     };
+     $c = new Moon\Container($entries);
+     $c->get('multiply'); // Return 20

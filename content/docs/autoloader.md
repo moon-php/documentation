@@ -9,8 +9,8 @@ toc = true
 
 <h3 class="section-head" id="introduction"><a href="#introduction">Introduction</a></h3>
 Autoloader is a standalone component incredibly easy.
-It's a minimal autoloader with support for PSR4 and PSR0.
-It also support a map autoloader.
+It's a small autoloader supporting for PSR4 and PSR0.
+It also support a map autoloading.
 
 <h3 class="section-head" id="installaton"><a href="#installaton">Installation</a></h3>
 
@@ -24,12 +24,15 @@ This will install Autoloader, it requires PHP 7.1 or newer.
 
 <h3 class="section-head" id="usage"><a href="#usage">Usage</a></h3>
 
-The autoloader has 2 different classes, one for PSR4/0 and another one for manual mapping.
+The Autoloader has 2 different classes.
+- One for PSR-4 & PSR-0
+- One for manual mapping.
 
-Both has register and unregister methods for create or destroy an autoloader instance.
+Both the classes have register and unregister methods, for create or destroy an autoloader instance.
  
 ###### PSRAutoloader
 
+    <?php
     $autoloader = new PsrAutoloader();
     $autoloader->addNamespace('JohnSmith\\Container\\', 'vendor/JohnSmith/Container/src');
     $autoloader->addNamespace('JohnSmith\\Logger\\', 'vendor/JohnSmith/Logger/src');
@@ -44,6 +47,7 @@ Both has register and unregister methods for create or destroy an autoloader ins
 
 ###### MapAutoloader
 
+    <?php
     $autoloader = new MapAutoloader();
     $autoloader->addNamespace('JohnSmith\\Package\\Class', 'vendor/JohnSmith/Package/main/common/mainClass.php');
     $autoloader->register(); // For enable this autoloader
