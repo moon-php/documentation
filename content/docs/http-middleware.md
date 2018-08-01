@@ -55,7 +55,7 @@ As said before, it's also possible to pass a PSR-7 Container to the **Delegate**
 This approach is preferable because will not load all the Middlewares before the execution.
 
     <?php
-    $conatiner= new Container(); // This container will retireve the middleware at runtime. $container->get('middlewareOne');
+    $container = new Container(); // This container will retrieve the middleware at runtime. $container->get('middlewareOne');
     $request = new ServerRequestImplementor();
     $delegate = new Delegate(['middlewareOne', 'middlewareTwo', 'middlewareThree'], new DefaultResponse(), $container);
     $delegate->process($request);
